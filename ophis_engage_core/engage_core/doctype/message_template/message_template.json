@@ -1,0 +1,178 @@
+{
+ "actions": [],
+ "creation": "2026-10-17 09:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "template_name",
+  "event",
+  "description",
+  "column_break_main",
+  "enabled",
+  "send_email",
+  "send_sms",
+  "send_whatsapp",
+  "handling_section",
+  "sensitive",
+  "column_break_handling",
+  "has_attachment",
+  "password_protected",
+  "content_section",
+  "email_template",
+  "text_message"
+ ],
+ "fields": [
+  {
+   "fieldname": "template_name",
+   "fieldtype": "Data",
+   "label": "Template",
+   "reqd": 1,
+   "unique": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "event",
+   "fieldtype": "Select",
+   "label": "Sent when",
+   "options": "Manual\nPortal Invitation\nBooking Request Received\nBooking Request Declined\nAppointment Booked\nAppointment Cancelled\nOrder Placed\nReferral Sent",
+   "default": "Manual",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "column_break_main",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled",
+   "default": "1",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "send_email",
+   "fieldtype": "Check",
+   "label": "Email",
+   "default": "1"
+  },
+  {
+   "fieldname": "send_sms",
+   "fieldtype": "Check",
+   "label": "SMS",
+   "default": "1"
+  },
+  {
+   "fieldname": "send_whatsapp",
+   "fieldtype": "Check",
+   "label": "WhatsApp",
+   "default": "0"
+  },
+  {
+   "fieldname": "handling_section",
+   "fieldtype": "Section Break",
+   "label": "Handling"
+  },
+  {
+   "fieldname": "sensitive",
+   "fieldtype": "Check",
+   "label": "Sensitive content",
+   "description": "Email, SMS and WhatsApp only say there is a message; it is read in the portal."
+  },
+  {
+   "fieldname": "column_break_handling",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "has_attachment",
+   "fieldtype": "Check",
+   "label": "Has an attachment"
+  },
+  {
+   "fieldname": "password_protected",
+   "fieldtype": "Check",
+   "label": "Password protected",
+   "depends_on": "has_attachment",
+   "description": "The PDF opens with the patient's health card number followed by their date of birth (YYYYMMDD)."
+  },
+  {
+   "fieldname": "content_section",
+   "fieldtype": "Section Break",
+   "label": "Content"
+  },
+  {
+   "fieldname": "email_template",
+   "fieldtype": "Link",
+   "label": "Email Template",
+   "options": "Email Template",
+   "reqd": 1,
+   "description": "Frappe's Email Template: its subject and message are the message, in the portal and by email. Jinja: {{ patient.first_name }}, {{ clinic }}, and what the event adds."
+  },
+  {
+   "fieldname": "text_message",
+   "fieldtype": "Small Text",
+   "label": "SMS and WhatsApp text",
+   "description": "Short. A link to the portal is added. Not used when the content is sensitive."
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-10-17 09:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Engage Core",
+ "name": "Message Template",
+ "owner": "Administrator",
+ "row_format": "Dynamic",
+ "sort_field": "template_name",
+ "sort_order": "ASC",
+ "states": [],
+ "track_changes": 1,
+ "autoname": "field:template_name",
+ "naming_rule": "By fieldname",
+ "description": "What a patient message says, how it is sent, and how its attachment is handled.",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "report": 1,
+   "print": 1,
+   "write": 1,
+   "create": 1,
+   "export": 1,
+   "delete": 1
+  },
+  {
+   "role": "EMR Clinic Admin",
+   "read": 1,
+   "report": 1,
+   "print": 1,
+   "write": 1,
+   "create": 1,
+   "export": 1
+  },
+  {
+   "role": "EMR Reception",
+   "read": 1,
+   "report": 1,
+   "print": 1
+  },
+  {
+   "role": "EMR Physician",
+   "read": 1,
+   "report": 1,
+   "print": 1
+  },
+  {
+   "role": "EMR Nurse",
+   "read": 1,
+   "report": 1,
+   "print": 1
+  }
+ ]
+}

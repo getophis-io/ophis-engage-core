@@ -1,0 +1,39 @@
+[project]
+name = "ophis_engage_core"
+authors = [
+    { name = "STRMLNE", email = "dev@getophis.io" },
+]
+description = "Patient engagement for Canadian family practice on Frappe and Ophis EMR Core: patient messages by email, SMS and WhatsApp, patient mailboxes and sign-in, booking requests and eReferrals, without a user interface"
+requires-python = ">=3.14"
+readme = "README.md"
+license = { text = "AGPL-3.0-or-later" }
+dynamic = ["version"]
+dependencies = [
+    # frappe, erpnext and ophis_emr_core are installed and managed by bench; pypdf comes with frappe.
+]
+
+[build-system]
+requires = ["flit_core >=3.4,<4"]
+build-backend = "flit_core.buildapi"
+
+[tool.bench.frappe-dependencies]
+frappe = ">=16.0.0,<17.0.0"
+erpnext = ">=16.0.0,<17.0.0"
+
+[tool.ruff]
+line-length = 110
+target-version = "py314"
+
+[tool.ruff.lint]
+select = ["F", "E", "W", "I", "UP", "B", "RUF"]
+ignore = ["E101", "E402", "E501", "E741", "W191", "B017", "B018", "B023", "B904", "RUF001", "RUF012", "UP030", "UP031", "UP032"]
+typing-modules = ["frappe.types.DF"]
+
+[tool.ruff.lint.isort]
+known-third-party = ["frappe", "ophis_emr_core"]
+known-first-party = ["ophis_engage_core"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "tab"
+docstring-code-format = true

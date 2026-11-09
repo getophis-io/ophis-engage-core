@@ -1,0 +1,187 @@
+{
+ "actions": [],
+ "creation": "2026-10-17 09:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "clinic_name",
+  "specialty",
+  "source",
+  "column_break_main",
+  "active",
+  "simulated",
+  "ocean_reference",
+  "address_section",
+  "address",
+  "address_display",
+  "column_break_address",
+  "email",
+  "phone",
+  "fax",
+  "city"
+ ],
+ "fields": [
+  {
+   "fieldname": "clinic_name",
+   "fieldtype": "Data",
+   "label": "Clinic",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "specialty",
+   "fieldtype": "Data",
+   "label": "Specialty",
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "source",
+   "fieldtype": "Select",
+   "label": "Found through",
+   "options": "Manual\nOceanMD",
+   "default": "Manual"
+  },
+  {
+   "fieldname": "column_break_main",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "active",
+   "fieldtype": "Check",
+   "label": "Active",
+   "default": "1"
+  },
+  {
+   "fieldname": "simulated",
+   "fieldtype": "Check",
+   "label": "From the OceanMD Simulator",
+   "read_only": 1,
+   "description": "Made up. Never send a real referral to it."
+  },
+  {
+   "fieldname": "ocean_reference",
+   "fieldtype": "Data",
+   "label": "OceanMD reference",
+   "description": "The clinic's Ocean site or service, where it takes eReferrals."
+  },
+  {
+   "fieldname": "address_section",
+   "fieldtype": "Section Break",
+   "label": "Address",
+   "description": "Kept in Frappe's Address, linked to this clinic."
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Link",
+   "label": "Address",
+   "options": "Address"
+  },
+  {
+   "fieldname": "address_display",
+   "fieldtype": "Small Text",
+   "label": "Address shown",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_address",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email",
+   "options": "Email",
+   "read_only": 1,
+   "fetch_from": "address.email_id"
+  },
+  {
+   "fieldname": "phone",
+   "fieldtype": "Data",
+   "label": "Phone",
+   "read_only": 1,
+   "fetch_from": "address.phone"
+  },
+  {
+   "fieldname": "fax",
+   "fieldtype": "Data",
+   "label": "Fax",
+   "read_only": 1,
+   "fetch_from": "address.fax"
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "label": "City",
+   "read_only": 1,
+   "in_list_view": 1,
+   "fetch_from": "address.city"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-10-17 09:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Engage Core",
+ "name": "Referral Clinic",
+ "owner": "Administrator",
+ "row_format": "Dynamic",
+ "sort_field": "clinic_name",
+ "sort_order": "ASC",
+ "states": [],
+ "track_changes": 1,
+ "autoname": "format:CLINIC-{#####}",
+ "naming_rule": "Expression",
+ "title_field": "clinic_name",
+ "search_fields": "clinic_name,specialty,city",
+ "show_title_field_in_link": 1,
+ "description": "A clinic referrals are sent to: through OceanMD when it is on Ocean, otherwise by email.",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "report": 1,
+   "print": 1,
+   "write": 1,
+   "create": 1,
+   "export": 1,
+   "delete": 1
+  },
+  {
+   "role": "EMR Clinic Admin",
+   "read": 1,
+   "report": 1,
+   "print": 1,
+   "write": 1,
+   "create": 1,
+   "export": 1
+  },
+  {
+   "role": "EMR Physician",
+   "read": 1,
+   "report": 1,
+   "print": 1,
+   "write": 1,
+   "create": 1,
+   "export": 1
+  },
+  {
+   "role": "EMR Nurse",
+   "read": 1,
+   "report": 1,
+   "print": 1,
+   "write": 1,
+   "create": 1,
+   "export": 1
+  },
+  {
+   "role": "EMR Reception",
+   "read": 1,
+   "report": 1,
+   "print": 1,
+   "write": 1,
+   "create": 1,
+   "export": 1
+  }
+ ]
+}

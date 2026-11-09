@@ -1,0 +1,197 @@
+{
+ "actions": [],
+ "creation": "2026-10-17 09:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "referral",
+  "patient",
+  "patient_name",
+  "clinic",
+  "clinic_name",
+  "column_break_main",
+  "method",
+  "status",
+  "simulated",
+  "recipient_email",
+  "sending_section",
+  "sent_on",
+  "sent_by",
+  "column_break_sending",
+  "external_reference",
+  "letter",
+  "detail"
+ ],
+ "fields": [
+  {
+   "fieldname": "referral",
+   "fieldtype": "Link",
+   "label": "Referral",
+   "options": "Patient Referral",
+   "reqd": 1
+  },
+  {
+   "fieldname": "patient",
+   "fieldtype": "Link",
+   "label": "Patient",
+   "options": "Patient",
+   "read_only": 1,
+   "fetch_from": "referral.patient"
+  },
+  {
+   "fieldname": "patient_name",
+   "fieldtype": "Data",
+   "label": "Patient name",
+   "read_only": 1,
+   "in_list_view": 1,
+   "fetch_from": "referral.patient_name"
+  },
+  {
+   "fieldname": "clinic",
+   "fieldtype": "Link",
+   "label": "Clinic",
+   "options": "Referral Clinic",
+   "reqd": 1
+  },
+  {
+   "fieldname": "clinic_name",
+   "fieldtype": "Data",
+   "label": "Clinic name",
+   "read_only": 1,
+   "in_list_view": 1,
+   "fetch_from": "clinic.clinic_name"
+  },
+  {
+   "fieldname": "column_break_main",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "method",
+   "fieldtype": "Select",
+   "label": "Sent by",
+   "options": "OceanMD\nEmail",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Sending\nSent\nFailed\nAccepted\nDeclined",
+   "default": "Sending",
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "simulated",
+   "fieldtype": "Check",
+   "label": "Simulated",
+   "read_only": 1,
+   "description": "Nothing left the clinic."
+  },
+  {
+   "fieldname": "recipient_email",
+   "fieldtype": "Data",
+   "label": "Sent to",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sending_section",
+   "fieldtype": "Section Break",
+   "label": "Sending"
+  },
+  {
+   "fieldname": "sent_on",
+   "fieldtype": "Datetime",
+   "label": "Sent on",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sent_by",
+   "fieldtype": "Link",
+   "label": "Sent by",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_sending",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "external_reference",
+   "fieldtype": "Data",
+   "label": "OceanMD reference",
+   "read_only": 1
+  },
+  {
+   "fieldname": "letter",
+   "fieldtype": "Attach",
+   "label": "Letter",
+   "read_only": 1
+  },
+  {
+   "fieldname": "detail",
+   "fieldtype": "Small Text",
+   "label": "Detail",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-10-17 09:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Engage Core",
+ "name": "eReferral",
+ "owner": "Administrator",
+ "row_format": "Dynamic",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "autoname": "format:EREF-{YYYY}-{#####}",
+ "naming_rule": "Expression",
+ "title_field": "clinic_name",
+ "description": "A patient referral as sent to another clinic, through OceanMD or by email.",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "report": 1,
+   "print": 1,
+   "write": 1,
+   "create": 1,
+   "export": 1,
+   "delete": 1
+  },
+  {
+   "role": "EMR Clinic Admin",
+   "read": 1,
+   "report": 1,
+   "print": 1
+  },
+  {
+   "role": "EMR Reception",
+   "read": 1,
+   "report": 1,
+   "print": 1
+  },
+  {
+   "role": "EMR Physician",
+   "read": 1,
+   "report": 1,
+   "print": 1,
+   "write": 1,
+   "create": 1,
+   "export": 1
+  },
+  {
+   "role": "EMR Nurse",
+   "read": 1,
+   "report": 1,
+   "print": 1,
+   "write": 1,
+   "create": 1,
+   "export": 1
+  }
+ ]
+}

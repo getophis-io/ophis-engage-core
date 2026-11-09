@@ -1,0 +1,137 @@
+{
+ "actions": [],
+ "creation": "2026-10-17 09:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "portal_section",
+  "portal_enabled",
+  "portal_url",
+  "column_break_portal",
+  "link_expiry_days",
+  "code_minutes",
+  "booking_section",
+  "booking_requests_enabled",
+  "booking_horizon_days",
+  "column_break_booking",
+  "max_pending_requests",
+  "referral_section",
+  "ereferrals_enabled",
+  "column_break_referral",
+  "clinic_phone"
+ ],
+ "fields": [
+  {
+   "fieldname": "portal_section",
+   "fieldtype": "Section Break",
+   "label": "Patient portal"
+  },
+  {
+   "fieldname": "portal_enabled",
+   "fieldtype": "Check",
+   "label": "Portal enabled",
+   "default": "1"
+  },
+  {
+   "fieldname": "portal_url",
+   "fieldtype": "Data",
+   "label": "Portal address",
+   "description": "Where patients' sign-in links point: the address of the app that serves the patient portal, such as https://clinic.example.ca/portal. Leave empty for this site's /portal."
+  },
+  {
+   "fieldname": "column_break_portal",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "link_expiry_days",
+   "fieldtype": "Int",
+   "label": "Sign-in links last (days)",
+   "default": "14"
+  },
+  {
+   "fieldname": "code_minutes",
+   "fieldtype": "Int",
+   "label": "Sign-in codes last (minutes)",
+   "default": "10"
+  },
+  {
+   "fieldname": "booking_section",
+   "fieldtype": "Section Break",
+   "label": "Booking requests"
+  },
+  {
+   "fieldname": "booking_requests_enabled",
+   "fieldtype": "Check",
+   "label": "Patients can request appointments",
+   "default": "1"
+  },
+  {
+   "fieldname": "booking_horizon_days",
+   "fieldtype": "Int",
+   "label": "Offer times up to (days ahead)",
+   "default": "28"
+  },
+  {
+   "fieldname": "column_break_booking",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "max_pending_requests",
+   "fieldtype": "Int",
+   "label": "Requests a patient can have waiting",
+   "default": "2"
+  },
+  {
+   "fieldname": "referral_section",
+   "fieldtype": "Section Break",
+   "label": "eReferrals"
+  },
+  {
+   "fieldname": "ereferrals_enabled",
+   "fieldtype": "Check",
+   "label": "Send referrals electronically",
+   "default": "0",
+   "description": "Offers sending referrals to other clinics through OceanMD or by email (the ereferral_service hook)."
+  },
+  {
+   "fieldname": "column_break_referral",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "clinic_phone",
+   "fieldtype": "Data",
+   "label": "Clinic phone",
+   "description": "Given to patients in messages."
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-10-17 09:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Engage Core",
+ "name": "Engage Settings",
+ "owner": "Administrator",
+ "row_format": "Dynamic",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "issingle": 1,
+ "description": "How the patient portal, booking requests and eReferrals work for this clinic.",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "print": 1
+  },
+  {
+   "role": "EMR Clinic Admin",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "print": 1
+  }
+ ]
+}
